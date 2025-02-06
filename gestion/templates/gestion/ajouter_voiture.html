@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Voiture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card p-4 shadow-sm">
+            <h1 class="text-center">Ajouter une Voiture</h1>
+            <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Numéro d'immatriculation</label>
+                    {{ form.num_imma }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Marque</label>
+                    {{ form.marque }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Modèle</label>
+                    {{ form.modele }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kilométrage</label>
+                    {{ form.kilometrage }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">État</label>
+                    {{ form.etat }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Prix de Location (€)</label>
+                    {{ form.prix_location }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Image</label>
+                    {{ form.image }}
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">✅ Enregistrer</button>
+                    <a href="{% url 'liste_voitures' %}" class="btn btn-secondary">↩ Annuler</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'home' %}" class="btn btn-outline-dark">🏠 Retour à l'Accueil</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
